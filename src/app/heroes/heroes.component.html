@@ -1,10 +1,35 @@
-<h3>{{hero.name}} Details</h3>
+<h2>My Heroes</h2> 
+<ul class="heroes">
+    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+  <div *ngIf="selectedHero">
+
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <div>
+      <label for="hero-name">Hero name: </label>
+      <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+    </div>
+  
+  </div>
+</ul>
+<!-- Agregamos *ngFor para adicionar cada heroe de nuestro archivo
+mock-herose.ts.
+Despues agregamos un evento (click) para que al clickar
+llame a una funcion-->
+
+<!-- agregamos [class.selected]="hero === selectedHero" para estilizar cuando es clickado -->
+
+<!-- Dejamos de usar la funcion de abajo para modificar nuestros heroes -->
+<!-- <h3>{{hero.name}} Details</h3>
 <div><span>id: </span>{{hero.id}}</div>
 <div><span>name: </span>{{hero.name | uppercase}}</div>
 <div>
     <label for="name">Hero name: </label>
     <input id="name" [(ngModel)]="hero.name" placeholder="name"> 
+    </div> -->
     <!-- ngModel sirve para tomar datos del fomulario y usarlos del
          template a la clase en ambas direcciones dentro del mismo componente
         Continua en app.module.ts donde importamos y agregamos a la matriz de metadatos-->
-  </div>
+  
