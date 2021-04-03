@@ -1,0 +1,10 @@
+<h3>{{hero.name}} Details</h3>
+<div><span>id: </span>{{hero.id}}</div>
+<div><span>name: </span>{{hero.name | uppercase}}</div>
+<div>
+    <label for="name">Hero name: </label>
+    <input id="name" [(ngModel)]="hero.name" placeholder="name"> 
+    <!-- ngModel sirve para tomar datos del fomulario y usarlos del
+         template a la clase en ambas direcciones dentro del mismo componente
+        Continua en app.module.ts donde importamos y agregamos a la matriz de metadatos-->
+  </div>
